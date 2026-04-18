@@ -46,6 +46,12 @@
       <a href="#cardapio">Cardápio</a>
       <a href="#galeria">Galeria</a>
       <a href="#contato">Contato</a>
+      <button class="nav__radio-btn nav__radio-btn--mobile" onclick="toggleRadio()" id="radioBtnMobile">
+        <svg id="iconPlayM" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconStopM" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="display:none"><rect x="6" y="6" width="12" height="12"/></svg>
+        <span class="nav__radio-dot" id="radioDotM"></span>
+        <span>Rádio Liberdade ao vivo</span>
+      </button>
       <a href="https://wa.me/5548999427019" target="_blank" class="nav__cta--mobile">Reservar Mesa</a>
     </div>
   </nav>
@@ -507,23 +513,32 @@
     lucide.createIcons();
 
     function toggleRadio() {
-      const audio = document.getElementById('radioAudio');
-      const play  = document.getElementById('iconPlay');
-      const stop  = document.getElementById('iconStop');
-      const dot   = document.getElementById('radioDot');
-      const btn   = document.getElementById('radioBtn');
+      const audio  = document.getElementById('radioAudio');
+      const play   = document.getElementById('iconPlay');
+      const stop   = document.getElementById('iconStop');
+      const playM  = document.getElementById('iconPlayM');
+      const stopM  = document.getElementById('iconStopM');
+      const dot    = document.getElementById('radioDot');
+      const dotM   = document.getElementById('radioDotM');
+      const btn    = document.getElementById('radioBtn');
+      const btnM   = document.getElementById('radioBtnMobile');
+
       if (audio.paused) {
         audio.play();
-        play.style.display = 'none';
-        stop.style.display = 'block';
-        dot.classList.add('playing');
-        btn.classList.add('playing');
+        play.style.display = 'none';   stop.style.display = 'block';
+        if(playM) { playM.style.display = 'none'; stopM.style.display = 'block'; }
+        dot && dot.classList.add('playing');
+        dotM && dotM.classList.add('playing');
+        btn  && btn.classList.add('playing');
+        btnM && btnM.classList.add('playing');
       } else {
         audio.pause();
-        play.style.display = 'block';
-        stop.style.display = 'none';
-        dot.classList.remove('playing');
-        btn.classList.remove('playing');
+        play.style.display = 'block';  stop.style.display = 'none';
+        if(playM) { playM.style.display = 'block'; stopM.style.display = 'none'; }
+        dot && dot.classList.remove('playing');
+        dotM && dotM.classList.remove('playing');
+        btn  && btn.classList.remove('playing');
+        btnM && btnM.classList.remove('playing');
       }
     }
 

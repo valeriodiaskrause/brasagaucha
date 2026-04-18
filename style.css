@@ -990,6 +990,27 @@ p  { line-height: 1.75; color: var(--texto2); font-size: .95rem; }
 
 @media (max-width: 768px) {
   .nav__radio { display: none; }
+  .nav__radio-btn--mobile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.8);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 4px;
+  }
+  .nav__radio-btn--mobile.playing {
+    background: rgba(192,57,43,.25);
+    border-color: var(--brasa);
+    color: #fff;
+  }
 }
 
 /* ── FAB WHATSAPP ── */
