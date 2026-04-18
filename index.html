@@ -26,6 +26,17 @@
         <li><a href="#contato">Contato</a></li>
       </ul>
       <a href="https://wa.me/5548999427019" target="_blank" class="nav__cta">Reservar</a>
+      <div class="nav__radio">
+        <audio id="radioAudio" preload="none">
+          <source src="https://cast4.audiostream.com.br:2655/mp3" type="audio/mpeg" />
+        </audio>
+        <button class="nav__radio-btn" id="radioBtn" onclick="toggleRadio()" title="Rádio Liberdade ao vivo">
+          <svg id="iconPlay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="iconStop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="display:none"><rect x="6" y="6" width="12" height="12"/></svg>
+          <span class="nav__radio-dot" id="radioDot"></span>
+          <span class="nav__radio-label">Rádio</span>
+        </button>
+      </div>
       <button class="nav__burger" id="burger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -483,28 +494,7 @@
     </div>
   </footer>
 
-  <!-- PLAYER RÁDIO -->
-  <div class="radio-player">
-    <div class="radio-player__inner">
-      <div class="radio-player__info">
-        <div class="radio-player__dot"></div>
-        <span class="radio-player__label">Ao Vivo</span>
-        <strong>Rádio Liberdade</strong>
-        <span class="radio-player__sub">Música Gaúcha 24h</span>
-      </div>
-      <audio id="radioAudio" preload="none">
-        <source src="https://cast4.audiostream.com.br:2655/mp3" type="audio/mpeg" />
-      </audio>
-      <div class="radio-player__controls">
-        <button class="radio-btn" id="radioBtn" onclick="toggleRadio()" title="Play/Pause">
-          <svg id="iconPlay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg>
-          <svg id="iconStop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22" style="display:none"><rect x="6" y="6" width="12" height="12"/></svg>
-        </button>
-        <input type="range" class="radio-volume" id="radioVolume" min="0" max="1" step="0.05" value="0.8" oninput="setVolume(this.value)" title="Volume" />
-      </div>
-      <a href="https://www.rdliberdade.com.br" target="_blank" class="radio-player__link">rdliberdade.com.br</a>
-    </div>
-  </div>
+  <!-- PLAYER RÁDIO REMOVIDO - movido para o header -->
 
   <a href="https://wa.me/5548999427019" target="_blank" class="fab" title="WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
@@ -520,17 +510,20 @@
       const audio = document.getElementById('radioAudio');
       const play  = document.getElementById('iconPlay');
       const stop  = document.getElementById('iconStop');
-      const dot   = document.querySelector('.radio-player__dot');
+      const dot   = document.getElementById('radioDot');
+      const btn   = document.getElementById('radioBtn');
       if (audio.paused) {
         audio.play();
         play.style.display = 'none';
         stop.style.display = 'block';
         dot.classList.add('playing');
+        btn.classList.add('playing');
       } else {
         audio.pause();
         play.style.display = 'block';
         stop.style.display = 'none';
         dot.classList.remove('playing');
+        btn.classList.remove('playing');
       }
     }
 

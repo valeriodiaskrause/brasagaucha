@@ -939,6 +939,59 @@ p  { line-height: 1.75; color: var(--texto2); font-size: .95rem; }
   color: var(--amber);
 }
 
+/* ── MINI PLAYER RÁDIO NO NAV ── */
+.nav__radio {
+  display: flex;
+  align-items: center;
+}
+
+.nav__radio-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.8);
+  padding: 7px 13px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--t);
+  white-space: nowrap;
+}
+
+.nav__radio-btn:hover {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+}
+
+.nav__radio-btn.playing {
+  background: rgba(192,57,43,.3);
+  border-color: var(--brasa);
+  color: #fff;
+}
+
+.nav__radio-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.3);
+  flex-shrink: 0;
+  transition: var(--t);
+}
+
+.nav__radio-dot.playing {
+  background: #4ade80;
+  box-shadow: 0 0 6px #4ade80;
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .nav__radio { display: none; }
+}
+
 /* ── FAB WHATSAPP ── */
 .fab {
   position: fixed;
