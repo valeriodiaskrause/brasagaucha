@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brasa Gaúcha | Churrascaria Garopaba - SC</title>
+  <meta name="description" content="Brasa Gaúcha — A churrascaria de Garopaba. Carnes na brasa, buffet livre, rodízio e delivery. RSC-434, Areias da Palhocinha." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#inicio" class="nav__logo">
+        <i data-lucide="flame" class="nav__ember"></i>
+        <span class="nav__name">Brasa Gaúcha</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a href="https://wa.me/5548999427019" target="_blank" class="nav__cta">Reservar</a>
+      <button class="nav__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="#sobre">Sobre</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/5548999427019" target="_blank" class="nav__cta--mobile">Reservar Mesa</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__bg">
+      <img src="imagens/picanha 04.jpg" alt="" aria-hidden="true" class="hero__img" />
+      <div class="hero__smoke"></div>
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal">Garopaba · Santa Catarina</p>
+      <h1 class="hero__title reveal delay-1">
+        Carne de verdade.<br>
+        <em>Brasa de verdade.</em>
+      </h1>
+      <p class="hero__sub reveal delay-2">Churrasco gaúcho na beira da estrada. Buffet livre, rodízio e delivery desde que Garopaba era só praia e pinheiro.</p>
+      <div class="hero__actions reveal delay-3">
+        <a href="#cardapio" class="btn btn--fire">Ver Cardápio</a>
+        <a href="#contato" class="btn btn--ghost">Como Chegar</a>
+      </div>
+      <div class="hero__stats reveal delay-4">
+        <div class="stat"><strong>4.3 <i data-lucide="star" class="star-icon"></i></strong><span>309 avaliações</span></div>
+        <div class="stat__divider"></div>
+        <div class="stat"><strong>R$40–60</strong><span>por pessoa</span></div>
+        <div class="stat__divider"></div>
+        <div class="stat"><strong>Aberto</strong><span>Fecha 23h</span></div>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+      <div class="sobre__grid">
+        <div class="sobre__visual">
+          <div class="sobre__img-wrap">
+            <img src="imagens/costela 03.jpg" alt="Costela gaúcha na brasa" class="sobre__img-main" />
+            <div class="sobre__img-badge">
+              <span class="badge__num">309</span>
+              <span class="badge__txt">avaliações<br>Google</span>
+            </div>
+          </div>
+          <img src="imagens/frango 01 (1).webp" alt="Frango na brasa" class="sobre__img-float" />
+        </div>
+        <div class="sobre__text">
+          <p class="label">Nossa história</p>
+          <h2>Tradição gaúcha<br>no coração de Garopaba</h2>
+          <p>A Brasa Gaúcha nasceu da paixão pelo churrasco de verdade — feito com carvão, paciência e amor. Na RSC-434, em Areias da Palhocinha, somos referência para quem busca carne de qualidade com o autêntico sabor do Sul.</p>
+          <p>Mais de 309 avaliações positivas no Google e nota 4.3. Nosso compromisso é simples: o melhor churrasco da região, sempre com carnes frescas e selecionadas.</p>
+          <div class="sobre__pills">
+            <span class="pill"><i data-lucide="beef" class="pill-icon"></i> Carnes Selecionadas</span>
+            <span class="pill"><i data-lucide="flame" class="pill-icon"></i> Brasa de Carvão</span>
+            <span class="pill"><i data-lucide="utensils" class="pill-icon"></i> Buffet à Vontade</span>
+            <span class="pill"><i data-lucide="car" class="pill-icon"></i> Mesas Externas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSSAS CARNES -->
+  <section class="nossas-carnes">
+    <div class="container">
+      <p class="label center" style="color:var(--amber)">Nossas Especialidades</p>
+      <h2 class="center" style="color:#fff">Carnes Selecionadas</h2>
+      <div class="carnes-grid">
+        <div class="carne-card">
+          <img src="imagens/picanha 04.jpg" alt="Picanha premium" />
+          <div class="carne-info">
+            <h3>Picanha Premium</h3>
+            <p>Corte nobre, sal grosso e brasa de carvão</p>
+          </div>
+        </div>
+        <div class="carne-card">
+          <img src="imagens/costela 03.jpg" alt="Costela gaúcha" />
+          <div class="carne-info">
+            <h3>Costela Gaúcha</h3>
+            <p>Assada lentamente por horas na brasa</p>
+          </div>
+        </div>
+        <div class="carne-card">
+          <img src="imagens/frango 01 (1).webp" alt="Frango temperado" />
+          <div class="carne-info">
+            <h3>Frango Temperado</h3>
+            <p>Marinado em temperos especiais da casa</p>
+          </div>
+        </div>
+        <div class="carne-card">
+          <img src="imagens/linguiça.jpg" alt="Linguiça artesanal" />
+          <div class="carne-info">
+            <h3>Linguiça Artesanal</h3>
+            <p>Toscana grelhada com ervas frescas</p>
+          </div>
+        </div>
+        <div class="carne-card">
+          <img src="imagens/bife.jpg" alt="Bife na chapa" />
+          <div class="carne-info">
+            <h3>Bife na Chapa</h3>
+            <p>Alcatra ou contrafilé grelhado na perfeição</p>
+          </div>
+        </div>
+        <div class="carne-card">
+          <img src="imagens/queijo.webp" alt="Queijo coalho na brasa" />
+          <div class="carne-info">
+            <h3>Queijo Coalho</h3>
+            <p>Grelhado na brasa, crocante por fora e cremoso por dentro</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORÁRIOS STRIP -->
+  <div class="horarios-strip">
+    <div class="container">
+      <div class="horarios-strip__grid">
+        <div class="hs-item">
+          <i data-lucide="utensils" class="hs-item__icon"></i>
+          <div><strong>Almoço</strong><p>Buffet · Kg · Marmitas</p><em>11h – 14h30</em></div>
+        </div>
+        <div class="hs-item">
+          <i data-lucide="package" class="hs-item__icon"></i>
+          <div><strong>Marmitas</strong><p>Delivery e Balcão</p><em>11h – 14h30</em></div>
+        </div>
+        <div class="hs-item hs-item--destaque">
+          <i data-lucide="flame" class="hs-item__icon"></i>
+          <div><strong>Espeto Corrido</strong><p>Carnes à vontade na mesa</p><em>19h30 – 22h30</em></div>
+        </div>
+        <div class="hs-item">
+          <i data-lucide="sandwich" class="hs-item__icon"></i>
+          <div><strong>Xis Artesanais</strong><p>Lanches e petiscos</p><em>18h – 23h</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARDÁPIO -->
+  <section class="cardapio" id="cardapio">
+    <div class="container">
+      <p class="label center">Nosso Cardápio</p>
+      <h2 class="center">Escolha o seu corte</h2>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="espeto"><i data-lucide="flame"></i> Espeto Corrido</button>
+        <button class="tab" data-tab="xis"><i data-lucide="sandwich"></i> Xis</button>
+        <button class="tab" data-tab="almoco"><i data-lucide="utensils"></i> Almoço & Marmitas</button>
+      </div>
+
+      <div class="tab-pane active" id="espeto">
+        <div class="pratos">
+          <article class="prato">
+            <div class="prato__img-wrap">
+              <img src="imagens/picanha 04.jpg" alt="Picanha na brasa" />
+            </div>
+            <div class="prato__body">
+              <h3>Picanha Premium</h3>
+              <p>Picanha premium com sal grosso, assada lentamente na brasa de carvão.</p>
+            </div>
+          </article>
+          <article class="prato">
+            <div class="prato__img-wrap">
+              <img src="imagens/costela 03.jpg" alt="Costela gaúcha" />
+            </div>
+            <div class="prato__body">
+              <h3>Costela Gaúcha</h3>
+              <p>Costela bovina assada por horas, desfiando na faca com suculência incomparável.</p>
+            </div>
+          </article>
+          <article class="prato">
+            <div class="prato__img-wrap">
+              <img src="imagens/frango 01 (1).webp" alt="Frango temperado" />
+            </div>
+            <div class="prato__body">
+              <h3>Frango Temperado</h3>
+              <p>Coxa e sobrecoxa marinadas em temperos especiais da casa, grelhadas na perfeição.</p>
+            </div>
+          </article>
+          <article class="prato">
+            <div class="prato__img-wrap">
+              <img src="imagens/linguiça.jpg" alt="Linguiça artesanal" />
+            </div>
+            <div class="prato__body">
+              <h3>Linguiça Artesanal</h3>
+              <p>Linguiça toscana artesanal, grelhada na brasa com ervas frescas.</p>
+            </div>
+          </article>
+          <article class="prato">
+            <div class="prato__img-wrap">
+              <img src="imagens/queijo.webp" alt="Queijo coalho" />
+            </div>
+            <div class="prato__body">
+              <h3>Queijo Coalho</h3>
+              <p>Grelhado na brasa, crocante por fora e cremoso por dentro.</p>
+            </div>
+          </article>
+        </div>
+        <div class="preco-box">
+          <p>Espeto Corrido</p>
+          <strong>19h30 – 22h30</strong>
+          <span>Carnes à vontade servidas na mesa</span>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="xis">
+        <div class="pratos">
+          <article class="prato">
+            <div class="prato__img-wrap">
+              <img src="imagens/xis 01.jpg" alt="Xis gaúcho tradicional" />
+              <span class="prato__tag"><i data-lucide="star"></i> Tradicional</span>
+            </div>
+            <div class="prato__body">
+              <h3>Xis Gaúcho</h3>
+              <p>O famoso Xis com carne bovina, queijo, alface, tomate e molho especial da casa.</p>
+            </div>
+          </article>
+          <article class="prato">
+            <div class="prato__img-wrap">
+              <img src="imagens/xis 02.jpg" alt="Xis bacon" />
+            </div>
+            <div class="prato__body">
+              <h3>Xis Bacon</h3>
+              <p>Xis com carne, bacon crocante, queijo derretido e todos os acompanhamentos.</p>
+            </div>
+          </article>
+          <article class="prato">
+            <div class="prato__img-wrap">
+              <img src="imagens/xis 03.jpg" alt="Xis frango" />
+            </div>
+            <div class="prato__body">
+              <h3>Xis Frango</h3>
+              <p>Peito de frango grelhado, queijo, salada e molho especial no pão artesanal.</p>
+            </div>
+          </article>
+          <article class="prato">
+            <div class="prato__img-wrap">
+              <img src="imagens/xis 05.jpg" alt="Xis completo" />
+              <span class="prato__tag"><i data-lucide="flame"></i> Completo</span>
+            </div>
+            <div class="prato__body">
+              <h3>Xis Completo</h3>
+              <p>Carne, frango, bacon, ovo, queijo e todos os acompanhamentos. O mais pedido!</p>
+            </div>
+          </article>
+        </div>
+        <div class="preco-box">
+          <p>Xis Artesanais</p>
+          <strong>18h – 23h</strong>
+          <span>Servidos com batata frita</span>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="almoco">
+        <div class="almoco-info">
+          <div class="almoco-card">
+            <img src="imagens/bife.jpg" alt="Almoço executivo" />
+            <div class="almoco-card__text">
+              <h3>Almoço Executivo</h3>
+              <p>Buffet livre com variedade de saladas, acompanhamentos e carnes. Inclui arroz, feijão, farofa, vinagrete e muito mais.</p>
+              <div class="almoco-horario">
+                <strong>11h – 14h30</strong>
+                <span>Segunda a Domingo</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="marmitas-section">
+            <h3><i data-lucide="package"></i> Marmitas</h3>
+            <div class="marmitas-grid">
+              <div class="marmita-item">
+                <strong>Marmita Simples</strong>
+                <p>Arroz, feijão, salada e uma carne</p>
+              </div>
+              <div class="marmita-item">
+                <strong>Marmita Executiva</strong>
+                <p>Arroz, feijão, farofa, salada, duas carnes</p>
+              </div>
+              <div class="marmita-item">
+                <strong>Marmita Família</strong>
+                <p>Porção grande para 2-3 pessoas</p>
+              </div>
+            </div>
+            <p class="marmitas-info">
+              <i data-lucide="clock"></i> 
+              <strong>Horário:</strong> 11h – 14h30 | 
+              <strong>Pedidos:</strong> (48) 99942-7019
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="galeria" id="galeria">
+    <div class="container">
+      <p class="label center" style="color:var(--amber)">Galeria</p>
+      <h2 class="center" style="color:#fff">Veja de Perto</h2>
+      <div class="galeria__grid">
+        <div class="gal tall"><img src="imagens/picanha 04.jpg" alt="Picanha na brasa" /><div class="gal__cap">Picanha Premium</div></div>
+        <div class="gal"><img src="imagens/costela 03.jpg" alt="Costela gaúcha" /><div class="gal__cap">Costela Gaúcha</div></div>
+        <div class="gal"><img src="imagens/frango 01 (1).webp" alt="Frango na brasa" /><div class="gal__cap">Frango na Brasa</div></div>
+        <div class="gal wide"><img src="imagens/xis 01.jpg" alt="Xis gaúcho" /><div class="gal__cap">Xis Gaúcho</div></div>
+        <div class="gal"><img src="imagens/xis 02.jpg" alt="Xis bacon" /><div class="gal__cap">Xis Bacon</div></div>
+        <div class="gal"><img src="imagens/bife.jpg" alt="Almoço executivo" /><div class="gal__cap">Almoço Executivo</div></div>
+        <div class="gal"><img src="imagens/linguiça.jpg" alt="Linguiça artesanal" /><div class="gal__cap">Linguiça Artesanal</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section class="avaliacoes">
+    <div class="avaliacoes__bg">
+      <img src="imagens/picanha 04.jpg" alt="" aria-hidden="true" />
+      <div class="avaliacoes__overlay"></div>
+    </div>
+    <div class="container avaliacoes__inner">
+      <div class="avaliacoes__header">
+        <div class="avaliacoes__score">
+          <span class="rating-hero__num">4.3</span>
+          <div class="avaliacoes__score-detail">
+            <div class="stars">
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-outline"></i>
+            </div>
+            <p>309 avaliações no Google</p>
+          </div>
+        </div>
+        <div class="avaliacoes__titulo">
+          <p class="label" style="color:var(--amber)">Avaliações</p>
+          <h2 style="color:#fff">O que dizem<br>nossos clientes</h2>
+        </div>
+      </div>
+      <div class="reviews">
+        <div class="review">
+          <div class="review__head">
+            <div class="avatar">M</div>
+            <div>
+              <strong>Marcos S.</strong>
+              <span><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i></span>
+            </div>
+          </div>
+          <p>"Melhor churrasco de Garopaba! A picanha derrete na boca e o atendimento é excelente. Voltarei sempre!"</p>
+        </div>
+        <div class="review">
+          <div class="review__head">
+            <div class="avatar">A</div>
+            <div>
+              <strong>Ana Paula R.</strong>
+              <span><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i></span>
+            </div>
+          </div>
+          <p>"Fui no espeto corrido e fiquei impressionada com a qualidade das carnes. Ambiente agradável e ótimo custo-benefício."</p>
+        </div>
+        <div class="review">
+          <div class="review__head">
+            <div class="avatar">J</div>
+            <div>
+              <strong>João C.</strong>
+              <span><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-outline"></i></span>
+            </div>
+          </div>
+          <p>"Costela gaúcha impecável! Assada do jeito certo, desmanchando. Recomendo muito para quem visita Garopaba."</p>
+        </div>
+        <div class="review">
+          <div class="review__head">
+            <div class="avatar">F</div>
+            <div>
+              <strong>Fernanda L.</strong>
+              <span><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i></span>
+            </div>
+          </div>
+          <p>"Ambiente lindo, mesas externas com vista incrível. As carnes são de primeira qualidade!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contato" id="contato">
+    <div class="container">
+      <p class="label center">Contato & Localização</p>
+      <h2 class="center">Venha nos Visitar</h2>
+      <div class="contato__grid">
+        <div class="contato__info">
+          <div class="info-row"><i data-lucide="map-pin" class="info-icon"></i><div><strong>Endereço</strong><p>RSC-434, Areias da Palhocinha<br>Garopaba – SC, 88495-000</p></div></div>
+          <div class="info-row"><i data-lucide="phone" class="info-icon"></i><div><strong>Telefone</strong><p><a href="tel:+5548999427019">(48) 99942-7019</a></p></div></div>
+          <div class="info-row"><i data-lucide="instagram" class="info-icon"></i><div><strong>Instagram</strong><p><a href="https://instagram.com/brasagaucha_garopaba" target="_blank">@brasagaucha_garopaba</a></p><small>3,6 mil seguidores</small></div></div>
+          <div class="info-row"><i data-lucide="clock" class="info-icon"></i><div><strong>Horário</strong><p>Ter–Dom: 11h–23h<br>Segunda: Fechado</p></div></div>
+          <a href="https://wa.me/5548999427019" target="_blank" class="btn btn--whatsapp"><i data-lucide="message-circle"></i> Falar no WhatsApp</a>
+        </div>
+        <div class="contato__mapa">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.5!2d-48.62!3d-28.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDAyJzA0LjAiUyA0OMKwMzcnMTIuMCJX!5e0!3m2!1spt-BR!2sbr!4v1" width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy" title="Localização Brasa Gaúcha"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo"><i data-lucide="flame"></i> <span>Brasa Gaúcha</span></div>
+          <p>A tradição gaúcha do churrasco no coração de Garopaba, SC.</p>
+        </div>
+        <div>
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Horários</h4>
+          <p>Almoço: 11h – 14h30</p>
+          <p>Xis: 18h – 23h</p>
+          <p>Espeto Corrido: 19h30 – 22h30</p>
+          <p style="color:var(--amber)">Fechado: Segundas</p>
+        </div>
+        <div>
+          <h4>Redes</h4>
+          <div class="footer__social">
+            <a href="https://instagram.com/brasagaucha_garopaba" target="_blank"><i data-lucide="instagram"></i> Instagram</a>
+            <a href="https://wa.me/5548999427019" target="_blank"><i data-lucide="message-circle"></i> WhatsApp</a>
+            <a href="https://www.google.com/maps/search/Brasa+Gaucha+Garopaba" target="_blank"><i data-lucide="map-pin"></i> Google Maps</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">© 2026 Brasa Gaúcha — Garopaba, SC</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5548999427019" target="_blank" class="fab" title="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
