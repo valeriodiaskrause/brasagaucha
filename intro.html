@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boi Preto</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* ── STAGE ── */
+    #stage {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── IMAGENS ── */
+    .bull {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    #img1 {
+      z-index: 1;
+      opacity: 1;
+      /* leve zoom lento enquanto espera o clique */
+      animation: idleZoom 8s ease-in-out infinite alternate;
+    }
+
+    #img2 {
+      z-index: 2;
+      opacity: 0;
+      transform: scale(1.04);
+    }
+
+    @keyframes idleZoom {
+      from { transform: scale(1); }
+      to   { transform: scale(1.06); }
+    }
+
+    /* ── OVERLAY ESCURO NAS BORDAS ── */
+    #vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background: radial-gradient(ellipse 75% 75% at 50% 50%,
+        transparent 40%,
+        rgba(0,0,0,0.75) 100%);
+      pointer-events: none;
+    }
+
+    /* ── FLASH ── */
+    #flash {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      background: #fff;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.05s ease;
+    }
+
+    /* ── HINT "CLIQUE" ── */
+    #hint {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 6;
+      color: rgba(255,255,255,0.55);
+      font-family: 'Georgia', serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      animation: blinkHint 2s ease-in-out infinite;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    @keyframes blinkHint {
+      0%, 100% { opacity: 0.4; }
+      50%       { opacity: 1; }
+    }
+
+    /* ── FADE OUT TOTAL (para o site) ── */
+    #fadeOut {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+
+    #fadeOut.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div id="stage" onclick="handleClick()">
+
+  <!-- Boi olhos fechados -->
+  <img id="img1" class="bull" src="abertura/boi preto 01.png" alt="" />
+
+  <!-- Boi olhos abertos -->
+  <img id="img2" class="bull" src="abertura/boi preto 02.png" alt="" />
+
+  <div id="vignette"></div>
+  <div id="flash"></div>
+  <div id="fadeOut"></div>
+
+  <div id="hint">Clique para entrar</div>
+
+</div>
+
+<script>
+  let clicked = false;
+
+  // ── AUDIO ──
+  let ctx;
+
+  function initAudio() {
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+
+  function playBass() {
+    const osc  = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(55, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(22, ctx.currentTime + 0.9);
+    gain.gain.setValueAtTime(0, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(1.3, ctx.currentTime + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.1);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 1.2);
+  }
+
+  function playWhoosh() {
+    const bufSize = ctx.sampleRate * 0.7;
+    const buf  = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+    const src    = ctx.createBufferSource();
+    const filter = ctx.createBiquadFilter();
+    const gain   = ctx.createGain();
+    src.buffer = buf;
+    src.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(1200, ctx.currentTime);
+    filter.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.6);
+    filter.Q.value = 0.7;
+    gain.gain.setValueAtTime(0.7, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.7);
+    src.start(ctx.currentTime);
+    src.stop(ctx.currentTime + 0.8);
+  }
+
+  // Som de boi bufando — ruído nasal grave com expiração
+  function playBullSnort() {
+    const dur = 1.4;
+
+    // --- fase 1: inspiração curta (ruído agudo rápido) ---
+    const inhaleSize = ctx.sampleRate * 0.25;
+    const inhaleBuf  = ctx.createBuffer(1, inhaleSize, ctx.sampleRate);
+    const inhaleData = inhaleBuf.getChannelData(0);
+    for (let i = 0; i < inhaleSize; i++) inhaleData[i] = Math.random() * 2 - 1;
+    const inhaleSrc = ctx.createBufferSource();
+    const inhaleF   = ctx.createBiquadFilter();
+    const inhaleG   = ctx.createGain();
+    inhaleSrc.buffer = inhaleBuf;
+    inhaleSrc.connect(inhaleF); inhaleF.connect(inhaleG); inhaleG.connect(ctx.destination);
+    inhaleF.type = 'bandpass';
+    inhaleF.frequency.value = 900;
+    inhaleF.Q.value = 1.2;
+    inhaleG.gain.setValueAtTime(0, ctx.currentTime);
+    inhaleG.gain.linearRampToValueAtTime(0.35, ctx.currentTime + 0.05);
+    inhaleG.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.22);
+    inhaleSrc.start(ctx.currentTime);
+    inhaleSrc.stop(ctx.currentTime + 0.3);
+
+    // --- fase 2: bufo principal — ruído grave turbulento ---
+    const snortSize = ctx.sampleRate * dur;
+    const snortBuf  = ctx.createBuffer(1, snortSize, ctx.sampleRate);
+    const snortData = snortBuf.getChannelData(0);
+    for (let i = 0; i < snortSize; i++) snortData[i] = Math.random() * 2 - 1;
+    const snortSrc = ctx.createBufferSource();
+    const snortF1  = ctx.createBiquadFilter(); // passa-baixa — corpo do bufo
+    const snortF2  = ctx.createBiquadFilter(); // pico nasal
+    const snortG   = ctx.createGain();
+    snortSrc.buffer = snortBuf;
+    snortSrc.connect(snortF1); snortF1.connect(snortF2); snortF2.connect(snortG); snortG.connect(ctx.destination);
+    snortF1.type = 'lowpass';
+    snortF1.frequency.setValueAtTime(600, ctx.currentTime + 0.18);
+    snortF1.frequency.exponentialRampToValueAtTime(180, ctx.currentTime + 0.18 + dur);
+    snortF2.type = 'peaking';
+    snortF2.frequency.value = 280;
+    snortF2.gain.value = 14;
+    snortF2.Q.value = 1.5;
+    snortG.gain.setValueAtTime(0, ctx.currentTime + 0.18);
+    snortG.gain.linearRampToValueAtTime(1.1, ctx.currentTime + 0.32);
+    snortG.gain.setValueAtTime(1.1, ctx.currentTime + 0.55);
+    snortG.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18 + dur);
+    snortSrc.start(ctx.currentTime + 0.18);
+    snortSrc.stop(ctx.currentTime + 0.18 + dur + 0.1);
+
+    // --- fase 3: ressonância grave do peito (tom) ---
+    const chest = ctx.createOscillator();
+    const chestG = ctx.createGain();
+    chest.connect(chestG); chestG.connect(ctx.destination);
+    chest.type = 'sawtooth';
+    chest.frequency.setValueAtTime(68, ctx.currentTime + 0.2);
+    chest.frequency.exponentialRampToValueAtTime(38, ctx.currentTime + 0.2 + dur * 0.8);
+    chestG.gain.setValueAtTime(0, ctx.currentTime + 0.2);
+    chestG.gain.linearRampToValueAtTime(0.28, ctx.currentTime + 0.35);
+    chestG.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2 + dur * 0.85);
+    // filtro no peito
+    const chestF = ctx.createBiquadFilter();
+    chest.disconnect(); chest.connect(chestF); chestF.connect(chestG);
+    chestF.type = 'lowpass';
+    chestF.frequency.value = 320;
+    chest.start(ctx.currentTime + 0.2);
+    chest.stop(ctx.currentTime + 0.2 + dur);
+  }
+
+  // ── SEQUÊNCIA AO CLICAR ──
+  function handleClick() {
+    if (clicked) return;
+    clicked = true;
+
+    initAudio();
+
+    // Esconde hint
+    document.getElementById('hint').style.opacity = '0';
+
+    // 1. Para o zoom idle
+    const img1 = document.getElementById('img1');
+    img1.style.animation = 'none';
+
+    // 2. Flash breve
+    const flash = document.getElementById('flash');
+    flash.style.opacity = '1';
+    setTimeout(() => {
+      flash.style.transition = 'opacity 0.3s ease';
+      flash.style.opacity = '0';
+    }, 60);
+
+    // 3. Crossfade img1 → img2 (olho abrindo)
+    const img2 = document.getElementById('img2');
+    img2.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    img2.style.opacity = '1';
+    img2.style.transform = 'scale(1)';
+
+    // 4. Sons
+    playBass();
+    setTimeout(playBullSnort, 80);
+
+    // 6. Fade out para o site
+    setTimeout(() => {
+      const fadeOut = document.getElementById('fadeOut');
+      fadeOut.classList.add('active');
+      setTimeout(() => {
+        // sinaliza pro site que pode tocar a rádio
+        sessionStorage.setItem('autoplayRadio', '1');
+        window.location.href = 'index.html';
+      }, 1000);
+    }, 1200);
+  }
+</script>
+
+</body>
+</html>

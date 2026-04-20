@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brasa Gaúcha | Churrascaria Garopaba - SC</title>
-  <meta name="description" content="Brasa Gaúcha — A churrascaria de Garopaba. Carnes na brasa, buffet livre, rodízio e delivery. RSC-434, Areias da Palhocinha." />
+  <script>
+    // Mostra a intro apenas uma vez por sessão
+    if (!sessionStorage.getItem('introVisto')) {
+      sessionStorage.setItem('introVisto', '1');
+      window.location.replace('intro.html');
+    }
+  </script>
+  <title>Boi Preto | Churrascaria Imbituba - SC</title>
+  <meta name="description" content="Boi Preto — Restaurante e Churrascaria em Imbituba. Buffet à vontade, mesas na cobertura. BR-101, Vila Nova, Imbituba - SC." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -16,8 +23,8 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="#inicio" class="nav__logo">
-        <i data-lucide="flame" class="nav__ember"></i>
-        <span class="nav__name">Brasa Gaúcha</span>
+        <img src="imagens/logo.png" alt="Boi Preto" class="nav__ember" />
+        <span class="nav__name">Boi Preto</span>
       </a>
       <ul class="nav__links">
         <li><a href="#sobre">Sobre</a></li>
@@ -59,23 +66,25 @@
   <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="hero__bg">
-      <img src="imagens/picanha 04.jpg" alt="" aria-hidden="true" class="hero__img" />
+      <video autoplay muted loop playsinline class="hero__img" style="object-fit:cover;">
+        <source src="imagens/video/snapinsta.com.br-69e48714da1cc.mp4" type="video/mp4" />
+      </video>
       <div class="hero__smoke"></div>
       <div class="hero__overlay"></div>
     </div>
     <div class="hero__content">
-      <p class="hero__eyebrow reveal">Garopaba · Santa Catarina</p>
+      <p class="hero__eyebrow reveal">Imbituba · Santa Catarina</p>
       <h1 class="hero__title reveal delay-1">
         Carne de verdade.<br>
-        <em>Brasa de verdade.</em>
+        <em>Boi de verdade.</em>
       </h1>
-      <p class="hero__sub reveal delay-2">Churrasco gaúcho na beira da estrada. Buffet livre, rodízio e delivery desde que Garopaba era só praia e pinheiro.</p>
+      <p class="hero__sub reveal delay-2">Churrasco gaúcho na beira da BR-101. Buffet à vontade, mesas na cobertura e bom para assistir a esportes.</p>
       <div class="hero__actions reveal delay-3">
         <a href="#cardapio" class="btn btn--fire">Ver Cardápio</a>
         <a href="#contato" class="btn btn--ghost">Como Chegar</a>
       </div>
       <div class="hero__stats reveal delay-4">
-        <div class="stat"><strong>4.3 <i data-lucide="star" class="star-icon"></i></strong><span>309 avaliações</span></div>
+        <div class="stat"><strong>4.0 <i data-lucide="star" class="star-icon"></i></strong><span>1.704 avaliações</span></div>
         <div class="stat__divider"></div>
         <div class="stat"><strong>R$40–60</strong><span>por pessoa</span></div>
         <div class="stat__divider"></div>
@@ -95,7 +104,7 @@
           <div class="sobre__img-wrap">
             <img src="imagens/costela 03.jpg" alt="Costela gaúcha na brasa" class="sobre__img-main" />
             <div class="sobre__img-badge">
-              <span class="badge__num">309</span>
+              <span class="badge__num">1.704</span>
               <span class="badge__txt">avaliações<br>Google</span>
             </div>
           </div>
@@ -103,9 +112,9 @@
         </div>
         <div class="sobre__text">
           <p class="label">Nossa história</p>
-          <h2>Tradição gaúcha<br>no coração de Garopaba</h2>
-          <p>A Brasa Gaúcha nasceu da paixão pelo churrasco de verdade — feito com carvão, paciência e amor. Na RSC-434, em Areias da Palhocinha, somos referência para quem busca carne de qualidade com o autêntico sabor do Sul.</p>
-          <p>Mais de 309 avaliações positivas no Google e nota 4.3. Nosso compromisso é simples: o melhor churrasco da região, sempre com carnes frescas e selecionadas.</p>
+          <h2>Tradição gaúcha<br>no coração de Imbituba</h2>
+          <p>A Boi Preto nasceu da paixão pelo churrasco de verdade — feito com carvão, paciência e amor. Na BR-101, em Vila Nova, somos referência para quem busca carne de qualidade com o autêntico sabor do Sul.</p>
+          <p>Mais de 1.704 avaliações no Google e nota 4.0. Nosso compromisso é simples: o melhor churrasco da região, sempre com carnes frescas e selecionadas.</p>
           <div class="sobre__pills">
             <span class="pill"><i data-lucide="beef" class="pill-icon"></i> Carnes Selecionadas</span>
             <span class="pill"><i data-lucide="flame" class="pill-icon"></i> Brasa de Carvão</span>
@@ -375,7 +384,7 @@
     <div class="container avaliacoes__inner">
       <div class="avaliacoes__header">
         <div class="avaliacoes__score">
-          <span class="rating-hero__num">4.3</span>
+          <span class="rating-hero__num">4.0</span>
           <div class="avaliacoes__score-detail">
             <div class="stars">
               <i data-lucide="star" class="star-filled"></i>
@@ -384,7 +393,7 @@
               <i data-lucide="star" class="star-filled"></i>
               <i data-lucide="star" class="star-outline"></i>
             </div>
-            <p>309 avaliações no Google</p>
+            <p>1.704 avaliações no Google</p>
           </div>
         </div>
         <div class="avaliacoes__titulo">
@@ -401,7 +410,7 @@
               <span><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i></span>
             </div>
           </div>
-          <p>"Melhor churrasco de Garopaba! A picanha derrete na boca e o atendimento é excelente. Voltarei sempre!"</p>
+          <p>"Melhor churrasco de Imbituba! A picanha derrete na boca e o atendimento é excelente. Voltarei sempre!"</p>
         </div>
         <div class="review">
           <div class="review__head">
@@ -421,7 +430,7 @@
               <span><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-small"></i><i data-lucide="star" class="star-outline"></i></span>
             </div>
           </div>
-          <p>"Costela gaúcha impecável! Assada do jeito certo, desmanchando. Recomendo muito para quem visita Garopaba."</p>
+          <p>"Costela impecável! Assada do jeito certo, desmanchando. Recomendo muito para quem visita Imbituba."</p>
         </div>
         <div class="review">
           <div class="review__head">
@@ -444,9 +453,9 @@
       <h2 class="center">Venha nos Visitar</h2>
       <div class="contato__grid">
         <div class="contato__info">
-          <div class="info-row"><i data-lucide="map-pin" class="info-icon"></i><div><strong>Endereço</strong><p>RSC-434, Areias da Palhocinha<br>Garopaba – SC, 88495-000</p></div></div>
+          <div class="info-row"><i data-lucide="map-pin" class="info-icon"></i><div><strong>Endereço</strong><p>288, BR-101, Vila Nova<br>Imbituba – SC, 88780-000</p></div></div>
           <div class="info-row"><i data-lucide="phone" class="info-icon"></i><div><strong>Telefone</strong><p><a href="tel:+5548999427019">(48) 99942-7019</a></p></div></div>
-          <div class="info-row"><i data-lucide="instagram" class="info-icon"></i><div><strong>Instagram</strong><p><a href="https://instagram.com/brasagaucha_garopaba" target="_blank">@brasagaucha_garopaba</a></p><small>3,6 mil seguidores</small></div></div>
+          <div class="info-row"><i data-lucide="instagram" class="info-icon"></i><div><strong>Instagram</strong><p><a href="https://instagram.com/churrascariaboipretoimbituba" target="_blank">@churrascariaboipretoimbituba</a></p><small>21,2 mil seguidores</small></div></div>
           <div class="info-row"><i data-lucide="clock" class="info-icon"></i><div><strong>Horário</strong><p>Ter–Dom: 11h–23h<br>Segunda: Fechado</p></div></div>
           <a href="https://wa.me/5548999427019" target="_blank" class="btn btn--whatsapp">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -454,7 +463,7 @@
           </a>
         </div>
         <div class="contato__mapa">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.5!2d-48.62!3d-28.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDAyJzA0LjAiUyA0OMKwMzcnMTIuMCJX!5e0!3m2!1spt-BR!2sbr!4v1" width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy" title="Localização Brasa Gaúcha"></iframe>
+          <iframe src="https://maps.google.com/maps?q=Restaurante+e+Churrascaria+Boi+Preto+Imbituba+SC&output=embed&hl=pt-BR" width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy" title="Localização Boi Preto"></iframe>
         </div>
       </div>
     </div>
@@ -465,8 +474,11 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__logo"><i data-lucide="flame"></i> <span>Brasa Gaúcha</span></div>
-          <p>A tradição gaúcha do churrasco no coração de Garopaba, SC.</p>
+          <div class="footer__logo">
+            <img src="imagens/logo.png" alt="Boi Preto" style="width:32px;height:32px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:8px"/>
+            <span>Boi Preto</span>
+          </div>
+          <p>A tradição gaúcha do churrasco no coração de Imbituba, SC.</p>
         </div>
         <div>
           <h4>Links</h4>
@@ -487,16 +499,16 @@
         <div>
           <h4>Redes</h4>
           <div class="footer__social">
-            <a href="https://instagram.com/brasagaucha_garopaba" target="_blank"><i data-lucide="instagram"></i> Instagram</a>
+            <a href="https://instagram.com/churrascariaboipretoimbituba" target="_blank"><i data-lucide="instagram"></i> Instagram</a>
             <a href="https://wa.me/5548999427019" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               WhatsApp
             </a>
-            <a href="https://www.google.com/maps/search/Brasa+Gaucha+Garopaba" target="_blank"><i data-lucide="map-pin"></i> Google Maps</a>
+            <a href="https://www.google.com/maps/search/Boi+Preto+Imbituba" target="_blank"><i data-lucide="map-pin"></i> Google Maps</a>
           </div>
         </div>
       </div>
-      <div class="footer__bottom">© 2026 Brasa Gaúcha — Garopaba, SC</div>
+      <div class="footer__bottom">© 2026 Boi Preto — Imbituba, SC</div>
     </div>
   </footer>
 
@@ -511,6 +523,22 @@
   <script src="script.js"></script>
   <script>
     lucide.createIcons();
+
+    // Autoplay da rádio se vier da intro
+    if (sessionStorage.getItem('autoplayRadio')) {
+      sessionStorage.removeItem('autoplayRadio');
+      const audio = document.getElementById('radioAudio');
+      audio.play().then(() => {
+        document.getElementById('iconPlay').style.display  = 'none';
+        document.getElementById('iconStop').style.display  = 'block';
+        document.getElementById('iconPlayM').style.display = 'none';
+        document.getElementById('iconStopM').style.display = 'block';
+        document.getElementById('radioDot').classList.add('playing');
+        document.getElementById('radioDotM').classList.add('playing');
+        document.getElementById('radioBtn').classList.add('playing');
+        document.getElementById('radioBtnMobile').classList.add('playing');
+      }).catch(() => {});
+    }
 
     function toggleRadio() {
       const audio  = document.getElementById('radioAudio');

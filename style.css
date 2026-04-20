@@ -1,5 +1,5 @@
 /* ============================================================
-   BRASA GAÚCHA — CSS
+   BOI PRETO — CSS
    Aplicando princípios do cookbook: tipografia distinta,
    cores com personalidade, animações orquestradas,
    backgrounds com profundidade, sem "AI slop"
@@ -242,12 +242,7 @@ p  { line-height: 1.75; color: var(--texto2); font-size: .95rem; }
 
 /* Smoke / ember effect — cookbook: backgrounds with depth */
 .hero__smoke {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(192,57,43,.35) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 20%, rgba(212,160,23,.15) 0%, transparent 70%);
-  animation: smokeShift 12s ease-in-out infinite alternate;
+  display: none;
 }
 @keyframes smokeShift {
   from { opacity: .7; }
@@ -258,9 +253,9 @@ p  { line-height: 1.75; color: var(--texto2); font-size: .95rem; }
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(15,13,11,.88) 0%,
-    rgba(15,13,11,.55) 60%,
-    rgba(15,13,11,.3) 100%
+    rgba(0,0,0,.45) 0%,
+    rgba(0,0,0,.15) 60%,
+    rgba(0,0,0,.05) 100%
   );
 }
 .hero__content {
@@ -270,6 +265,31 @@ p  { line-height: 1.75; color: var(--texto2); font-size: .95rem; }
   margin: 0 auto;
   padding: 120px 24px 80px;
   color: #fff;
+}
+
+/* split: texto esquerda + vídeo direita */
+.hero__content--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.hero__left { display: flex; flex-direction: column; }
+
+.hero__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__video {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 .hero__eyebrow {
   font-size: 12px;
@@ -379,19 +399,23 @@ p  { line-height: 1.75; color: var(--texto2); font-size: .95rem; }
 .sobre__text h2 { margin-bottom: 20px; }
 .sobre__text p  { margin-bottom: 14px; }
 .sobre__pills {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin-top: 28px;
 }
 .pill {
   background: var(--creme2);
   border: 1px solid rgba(0,0,0,.08);
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 50px;
   font-size: .82rem;
   font-weight: 500;
   color: var(--texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /* ── NOSSAS CARNES ── */
@@ -1051,6 +1075,8 @@ p  { line-height: 1.75; color: var(--texto2); font-size: .95rem; }
 
   .hero__title { font-size: 3rem; }
   .hero__stats { gap: 14px; }
+  .hero__content--split { grid-template-columns: 1fr; }
+  .hero__right { display: none; }
 
   .carnes-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .carne-card img { height: 180px; }
@@ -1091,7 +1117,7 @@ p  { line-height: 1.75; color: var(--texto2); font-size: .95rem; }
   .tab { padding: 8px 16px; font-size: .8rem; }
 }
 /* ── ÍCONES LUCIDE ── */
-.nav__ember { width: 24px; height: 24px; color: var(--amber); }
+.nav__ember { width: 36px; height: 36px; object-fit: contain; flex-shrink: 0; }
 .star-icon { width: 16px; height: 16px; color: var(--amber); fill: var(--amber); }
 .pill-icon { width: 16px; height: 16px; margin-right: 4px; }
 .hs-item__icon { width: 28px; height: 28px; flex-shrink: 0; color: var(--amber); }
